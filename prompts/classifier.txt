@@ -1,0 +1,70 @@
+Classify this bedtime story request. Return only valid JSON:
+{
+  "category": "one allowed category",
+  "world": "everyday | animal | magical | mixed",
+  "age_band": "5-7 | 8-10 | unspecified",
+  "energy": "very_calm | gently_playful",
+  "learning_theme": "short phrase or none",
+  "acknowledgement": "one or two natural sentences for the parent",
+  "child_profile": {
+    "name": null,
+    "age": null,
+    "interests": ["explicitly stated interests"],
+    "emotional_context": null
+  },
+  "visual_motif": {
+    "glyphs": ["three to four relevant emoji or text glyphs"],
+    "motion": "fly | float | bob | walk | swim | twinkle | sway | settle",
+    "mood": "gentle | playful | dreamy | cozy",
+    "accessible_label": "short description of the animated scene"
+  },
+  "adaptation": null
+}
+
+Choose the category from the story's central emotional or narrative need, not
+from one isolated word. Use emotional_growth when a bad day, fear, jealousy,
+worry, disappointment, or another feeling should shape the protagonist's
+choices. Reserve comfort_and_routine for stories actually organized around a
+familiar routine, a small disruption to it, and restoration of that routine.
+Interests such as animals, magic, or sports describe the story world and may
+help the child approach the central need; they do not erase it.
+
+Write acknowledgement as the storyteller's warm response before writing. Show
+that you understood two or more meaningful details, including the child's name
+and age when provided, and briefly describe the gentle creative direction. Do
+not repeat the request mechanically, diagnose the child, promise that a fear
+will disappear, mention a category or classification, or use system language.
+Respect distinctions in the request—for example, liking one kind of creature
+does not mean the child is comfortable with every creature.
+
+Extract only child-profile details actually provided by the parent. Do not treat
+the returning user's account name as the child's name. Create visual_motif at
+runtime from the child's interests and requested world. Always supply three or
+four glyphs; a group of repeated animals is welcome when one animal is central.
+Choose glyphs that work as a small, calm waiting animation. If no interest is supplied, invent a motif
+that fits the planned surprise story. Never mention internal categories in the
+accessible label.
+
+If the request names or clearly invokes an existing story, genre, historical
+event, cultural reference, or emotionally heavy concept, replace null with a
+runtime creative brief:
+{
+  "source_or_concept": "what is being adapted",
+  "emotional_core": ["one to three transferable themes"],
+  "narrative_pattern": "the underlying relationship or dramatic movement",
+  "elements_to_soften": ["intense elements unsuitable for bedtime"],
+  "child_safe_reimagining": "an original child-sized direction that preserves depth"
+}
+
+Infer this from the actual request and your knowledge; do not use a fixed
+source-to-theme lookup. Separate what makes the idea emotionally meaningful
+from its famous characters, scenes, quotations, violence, tragedy, or adult
+stakes. Translate the scale of the conflict without flattening every difficult
+feeling into generic kindness. If you do not confidently recognize a named
+reference, do not invent facts: use only the qualities the parent described,
+or leave adaptation null.
+
+Allowed categories: __CATEGORIES__
+
+Request:
+__REQUEST__

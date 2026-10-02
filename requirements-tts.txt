@@ -1,0 +1,7 @@
+# Install in a separate Python 3.11 environment; see README.md.
+# Nano is currently documented on the official repository ahead of its PyPI wheel.
+chatterbox-tts @ git+https://github.com/resemble-ai/chatterbox.git@5de7a54aa4e5e2baadb0182dde554908b48b85c2
+fastapi>=0.115.0,<1.0.0
+uvicorn[standard]>=0.30.0,<1.0.0
+# Perth currently imports pkg_resources during startup.
+setuptools<81
